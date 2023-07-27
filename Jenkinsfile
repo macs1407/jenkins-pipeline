@@ -1,10 +1,13 @@
+@Library('jenkinsLib')
 pipeline {
     agent any
 
     stages {
         stage('clona') {
             steps {
-                echo 'Clonando repo ...................'
+                script {
+                    dockerLib.clonar(nombreRepo: "matias")
+                }
             }
         }
         stage('compilando') {
@@ -14,7 +17,9 @@ pipeline {
         }
         stage('desplegando') {
             steps {
-                echo 'deploy ...............'
+               script {
+                    dockerLib.publicando(version: "1.0")
+                }
             }
         }
     }

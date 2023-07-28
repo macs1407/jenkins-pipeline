@@ -1,0 +1,5 @@
+@Library('jenkinsLibs') _
+dockerPipeline(
+    nombreRepo: "matias",
+    version: "1.0"
+)
